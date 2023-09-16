@@ -1,0 +1,21 @@
+ --> User provided command line run_dir argument : ../runs/perovskite_multiscale_dataset_3
+ --> User provided command line ae argument : 1
+ --> User provided command line mode argument : predict
+ --> Set global random seed 0.
+ --> Saved user provided dictionaries to pickle.
+ --> Saved user provided dictionaries to run_summary.txt
+ --> Dataset directory already exists. Proceeding to rewrite.
+ --> Found .csv file : PSC_efficiencies_dataset.csv
+ --> Loaded X as a dataframe.
+ --> X Dataframe shape : (2018, 71)
+ --> Dataframe head.
+   Perovskite_single_crystal  ...  JV_reverse_scan_PCE
+0                      False  ...                13.30
+1                      False  ...                17.20
+2                      False  ...                18.45
+3                      False  ...                19.43
+4                      False  ...                20.52
+
+[5 rows x 71 columns]
+ --> No NA values found in all_props.
+ --> Extracting data for all_props from X dataframe cols [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].

@@ -1,0 +1,173 @@
+ --> User provided command line run_dir argument : ../runs/perovskite_multiscale_dataset_3
+ --> User provided command line ae argument : 2
+ --> Setting global random seed 0.
+ --> Running on cpu.
+ --> Number of threads : 10
+ --> Number of interop threads : 10
+ --> PyTorch configurations
+
+
+ --> Submodule encoder layers :
+ModuleList(
+  (0): Linear(in_features=23, out_features=18, bias=True)
+  (1): Tanh()
+)
+
+
+ --> Submodule PCE_pred layers :
+ModuleList(
+  (0): Linear(in_features=18, out_features=100, bias=True)
+  (1): ReLU()
+  (2): Dropout(p=0.1, inplace=False)
+  (3): Linear(in_features=100, out_features=1, bias=True)
+  (4): ReLU()
+)
+
+
+ --> Submodule latents_pred layers :
+ModuleList(
+  (0): Linear(in_features=18, out_features=12, bias=True)
+)
+
+
+ --> Submodule etm_pred layers :
+ModuleList(
+  (0): Linear(in_features=18, out_features=7, bias=True)
+)
+
+
+ --> Submodule htm_pred layers :
+ModuleList(
+  (0): Linear(in_features=18, out_features=4, bias=True)
+)
+ --> Model Compilation step complete.
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name       ┃ Type       ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ submodules │ ModuleDict │  2.9 K │
+└───┴────────────┴────────────┴────────┘
+Trainable params: 2.9 K                                                         
+Non-trainable params: 0                                                         
+Total params: 2.9 K                                                             
+Total estimated model params size (MB): 0                                       
+ --> Example Input : 
+{'all_props': tensor([-0.8142, -0.6422, -0.2542,  0.6639,  0.2186,  0.1587,  0.2467, -0.2491,
+         0.0837,  0.2491,  0.5617,  0.5617, -0.5617, -0.5617, -0.5617]), 'etm': tensor([0., 0., 0., 0., 0., 1., 0.]), 'htm': tensor([0., 0., 0., 1.]), 'PCE': tensor([13.3000]), 'latents': tensor([ 0.2465,  0.1169, -0.2667, -0.7482, -0.6848,  0.8180, -0.2374, -0.8382,
+        -0.6042,  0.6723, -0.2217,  0.6170]), 'pred_bg': tensor([-0.2310])}
+
+
+--> Model Trace : 
+
+
+ ---------------------------------- 
+module_name:encoder
+input id:['latents', 'etm', 'htm']
+input to submodule :
+tensor([ 0.2465,  0.1169, -0.2667, -0.7482, -0.6848,  0.8180, -0.2374, -0.8382,
+        -0.6042,  0.6723, -0.2217,  0.6170,  0.0000,  0.0000,  0.0000,  0.0000,
+         0.0000,  1.0000,  0.0000,  0.0000,  0.0000,  0.0000,  1.0000])
+output id:encoder
+output from submodule :
+tensor([-0.2050, -0.7351, -0.5524,  0.5287,  0.4453, -0.2923, -0.7975,  0.5619,
+        -0.1565, -0.3012,  0.0490, -0.5474, -0.6958, -0.0970,  0.6568,  0.3882,
+         0.2755, -0.7689], grad_fn=<TanhBackward0>)
+Submodule output dictionary :
+{'encoder': tensor([-0.2050, -0.7351, -0.5524,  0.5287,  0.4453, -0.2923, -0.7975,  0.5619,
+        -0.1565, -0.3012,  0.0490, -0.5474, -0.6958, -0.0970,  0.6568,  0.3882,
+         0.2755, -0.7689], grad_fn=<TanhBackward0>)}
+ ---------------------------------- 
+
+
+
+
+ ---------------------------------- 
+module_name:PCE_pred
+input id:['encoder']
+input to submodule :
+tensor([-0.2050, -0.7351, -0.5524,  0.5287,  0.4453, -0.2923, -0.7975,  0.5619,
+        -0.1565, -0.3012,  0.0490, -0.5474, -0.6958, -0.0970,  0.6568,  0.3882,
+         0.2755, -0.7689], grad_fn=<CatBackward0>)
+output id:PCE_pred
+output from submodule :
+tensor([0.], grad_fn=<ReluBackward0>)
+Submodule output dictionary :
+{'PCE_pred': tensor([0.], grad_fn=<ReluBackward0>),
+ 'encoder': tensor([-0.2050, -0.7351, -0.5524,  0.5287,  0.4453, -0.2923, -0.7975,  0.5619,
+        -0.1565, -0.3012,  0.0490, -0.5474, -0.6958, -0.0970,  0.6568,  0.3882,
+         0.2755, -0.7689], grad_fn=<TanhBackward0>)}
+ ---------------------------------- 
+
+
+
+
+ ---------------------------------- 
+module_name:latents_pred
+input id:['encoder']
+input to submodule :
+tensor([-0.2050, -0.7351, -0.5524,  0.5287,  0.4453, -0.2923, -0.7975,  0.5619,
+        -0.1565, -0.3012,  0.0490, -0.5474, -0.6958, -0.0970,  0.6568,  0.3882,
+         0.2755, -0.7689], grad_fn=<CatBackward0>)
+output id:latents_pred
+output from submodule :
+tensor([-0.4235, -1.6145, -0.4397, -0.3281, -1.3229,  0.0832, -0.0157,  0.3447,
+        -0.0025,  0.0469, -0.0695,  1.2537], grad_fn=<AddBackward0>)
+Submodule output dictionary :
+{'PCE_pred': tensor([0.], grad_fn=<ReluBackward0>),
+ 'encoder': tensor([-0.2050, -0.7351, -0.5524,  0.5287,  0.4453, -0.2923, -0.7975,  0.5619,
+        -0.1565, -0.3012,  0.0490, -0.5474, -0.6958, -0.0970,  0.6568,  0.3882,
+         0.2755, -0.7689], grad_fn=<TanhBackward0>),
+ 'latents_pred': tensor([-0.4235, -1.6145, -0.4397, -0.3281, -1.3229,  0.0832, -0.0157,  0.3447,
+        -0.0025,  0.0469, -0.0695,  1.2537], grad_fn=<AddBackward0>)}
+ ---------------------------------- 
+
+
+
+
+ ---------------------------------- 
+module_name:etm_pred
+input id:['encoder']
+input to submodule :
+tensor([-0.2050, -0.7351, -0.5524,  0.5287,  0.4453, -0.2923, -0.7975,  0.5619,
+        -0.1565, -0.3012,  0.0490, -0.5474, -0.6958, -0.0970,  0.6568,  0.3882,
+         0.2755, -0.7689], grad_fn=<CatBackward0>)
+output id:etm_pred
+output from submodule :
+tensor([ 1.0378, -1.1262,  0.6650,  0.7301, -0.6664,  0.8798,  0.2179],
+       grad_fn=<AddBackward0>)
+Submodule output dictionary :
+{'PCE_pred': tensor([0.], grad_fn=<ReluBackward0>),
+ 'encoder': tensor([-0.2050, -0.7351, -0.5524,  0.5287,  0.4453, -0.2923, -0.7975,  0.5619,
+        -0.1565, -0.3012,  0.0490, -0.5474, -0.6958, -0.0970,  0.6568,  0.3882,
+         0.2755, -0.7689], grad_fn=<TanhBackward0>),
+ 'etm_pred': tensor([ 1.0378, -1.1262,  0.6650,  0.7301, -0.6664,  0.8798,  0.2179],
+       grad_fn=<AddBackward0>),
+ 'latents_pred': tensor([-0.4235, -1.6145, -0.4397, -0.3281, -1.3229,  0.0832, -0.0157,  0.3447,
+        -0.0025,  0.0469, -0.0695,  1.2537], grad_fn=<AddBackward0>)}
+ ---------------------------------- 
+
+
+
+
+ ---------------------------------- 
+module_name:htm_pred
+input id:['encoder']
+input to submodule :
+tensor([-0.2050, -0.7351, -0.5524,  0.5287,  0.4453, -0.2923, -0.7975,  0.5619,
+        -0.1565, -0.3012,  0.0490, -0.5474, -0.6958, -0.0970,  0.6568,  0.3882,
+         0.2755, -0.7689], grad_fn=<CatBackward0>)
+output id:htm_pred
+output from submodule :
+tensor([-0.4810,  0.6395,  0.6425, -0.3370], grad_fn=<AddBackward0>)
+Submodule output dictionary :
+{'PCE_pred': tensor([0.], grad_fn=<ReluBackward0>),
+ 'encoder': tensor([-0.2050, -0.7351, -0.5524,  0.5287,  0.4453, -0.2923, -0.7975,  0.5619,
+        -0.1565, -0.3012,  0.0490, -0.5474, -0.6958, -0.0970,  0.6568,  0.3882,
+         0.2755, -0.7689], grad_fn=<TanhBackward0>),
+ 'etm_pred': tensor([ 1.0378, -1.1262,  0.6650,  0.7301, -0.6664,  0.8798,  0.2179],
+       grad_fn=<AddBackward0>),
+ 'htm_pred': tensor([-0.4810,  0.6395,  0.6425, -0.3370], grad_fn=<AddBackward0>),
+ 'latents_pred': tensor([-0.4235, -1.6145, -0.4397, -0.3281, -1.3229,  0.0832, -0.0157,  0.3447,
+        -0.0025,  0.0469, -0.0695,  1.2537], grad_fn=<AddBackward0>)}
+ ---------------------------------- 
+
+

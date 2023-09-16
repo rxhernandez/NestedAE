@@ -1,0 +1,152 @@
+nn_datasets_dict:
+  predict:
+    X:
+      header: 0
+      path: ../datasets/PSC_efficiencies/PSC_efficiencies_dataset.csv
+      skiprows: null
+      variables:
+        all_props:
+          cols:
+          - 20
+          - 21
+          - 22
+          - 23
+          - 24
+          - 31
+          - 32
+          - 33
+          - 34
+          - 35
+          - 43
+          - 44
+          - 45
+          - 46
+          - 47
+          preprocess: std
+  train:
+    X:
+      header: 0
+      path: ../datasets/PSC_bandgaps/PSC_bandgaps_dataset.csv
+      skiprows: null
+      variables:
+        SLME:
+          cols:
+          - 4
+          preprocess: null
+        all_props:
+          cols:
+          - 19
+          - 23
+          - 24
+          - 25
+          - 28
+          - 31
+          - 35
+          - 36
+          - 37
+          - 40
+          - 43
+          - 47
+          - 48
+          - 49
+          - 52
+          preprocess: std
+        bg:
+          cols:
+          - 3
+          preprocess: null
+        bg_class:
+          cols:
+          - 55
+          preprocess: null
+        decomp:
+          cols:
+          - 2
+          preprocess: null
+nn_params_dict:
+  model_type: ae1_bg_predictor_enc_l_12_l1_1em2_tanh_pred_p_0_1_100_relu_dec_15_linear_seed_0_lr_1em3_bs_10_1500_epochs_mae_mtl_k_fold_4_xavier_normal
+  submodules:
+    bg_pred:
+      connect_to:
+      - encoder
+      layer_activation:
+      - relu
+      - relu
+      layer_bias_init:
+      - zeros
+      - zeros
+      layer_dropout:
+      - p: 0.1
+        type: Dropout
+      - null
+      layer_kernel_init:
+      - xavier_normal
+      - xavier_normal
+      layer_kernel_init_gain:
+      - 1
+      - 1
+      layer_type:
+      - linear
+      - linear
+      loss:
+        target: bg
+        type: mae
+        wt: 1
+      num_nodes_per_layer:
+      - 100
+      - 1
+      save_output_on_fit_end: true
+    decoder:
+      connect_to:
+      - encoder
+      layer_activation:
+      - null
+      layer_bias_init:
+      - zeros
+      layer_kernel_init:
+      - xavier_normal
+      layer_kernel_init_gain:
+      - 1
+      layer_type:
+      - linear
+      loss:
+        target: all_props
+        type: mae
+        wt: 1
+      num_nodes_per_layer:
+      - 15
+      save_output_on_fit_end: true
+    encoder:
+      connect_to:
+      - all_props
+      layer_activation:
+      - tanh
+      layer_bias_init:
+      - zeros
+      layer_kernel_init:
+      - xavier_normal
+      layer_kernel_init_gain:
+      - 1
+      layer_type:
+      - linear
+      layer_weight_reg:
+        l1: 0.01
+        l2: 0
+      num_nodes_per_layer:
+      - 12
+      save_output_on_fit_end: true
+nn_save_dir: ../runs/perovskite_multiscale_dataset_3/ae1_bg_predictor_enc_l_12_l1_1em2_tanh_pred_p_0_1_100_relu_dec_15_linear_seed_0_lr_1em3_bs_10_1500_epochs_mae_mtl_k_fold_4_xavier_normal
+nn_train_params_dict:
+  batch_size: 10
+  callbacks:
+    model_checkpoint:
+      mode: min
+      monitor: total_val_loss
+      save_top_k: 1
+  epochs: 1500
+  global_seed: 0
+  optimizer:
+    lr: 0.001
+    type: adam
+  shuffle_data_between_epochs: true
+  test_split: 0.1

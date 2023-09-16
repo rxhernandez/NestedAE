@@ -1,0 +1,5 @@
+ --> User provided command line util argument : metrics
+ --> User provided command line dir argument : ../runs/test_nt
+ --> User provided command line nn argument : 0
+ --> Saved metric plots to model directory
+ --> Exit.

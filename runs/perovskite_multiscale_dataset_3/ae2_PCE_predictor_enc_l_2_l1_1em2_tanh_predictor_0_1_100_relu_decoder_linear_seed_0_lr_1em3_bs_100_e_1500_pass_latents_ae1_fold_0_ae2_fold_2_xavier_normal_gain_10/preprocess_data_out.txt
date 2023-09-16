@@ -1,0 +1,102 @@
+ --> User provided command line run_dir argument : ../runs/perovskite_multiscale_dataset_3
+ --> User provided command line ae argument : 2
+ --> User provided command line mode argument : train
+ --> Set global random seed 0.
+ --> Saved user provided dictionaries to pickle.
+ --> Saved user provided dictionaries to run_summary.txt
+ --> Dataset directory already exists. Proceeding to rewrite.
+ --> Found .csv file : PSC_efficiencies_dataset.csv
+ --> Loaded X as a dataframe.
+ --> X Dataframe shape : (2018, 71)
+ --> Dataframe head.
+   Perovskite_single_crystal  Perovskite_dimension_0D  ...  JV_reverse_scan_FF  JV_reverse_scan_PCE
+0                      False                    False  ...               0.654                13.30
+1                      False                    False  ...               0.727                17.20
+2                      False                    False  ...               0.763                18.45
+3                      False                    False  ...               0.778                19.43
+4                      False                    False  ...               0.785                20.52
+
+[5 rows x 71 columns]
+ --> No NA values found in all_props.
+ --> Extracting data for all_props from X dataframe cols [20, 21, 22, 23, 24, 31, 32, 33, 34, 35, 43, 44, 45, 46, 47].
+ --> all_props dtype : float32
+ --> all_props shape : (2018, 15)
+ --> No NA values found in etm.
+ --> Extracting data for etm from X dataframe cols [57].
+ --> etm dtype : float32
+ --> etm dim   : (2018, 7)
+ --> Encoded col [57] with 7 categories ['C60 | BCP' 'PCBM-60' 'PCBM-60 | BCP' 'SnO2-c' 'SnO2-np' 'TiO2-c'
+ 'TiO2-c | TiO2-mp']
+ --> No NA values found in htm.
+ --> Extracting data for htm from X dataframe cols [58].
+ --> htm dtype : float32
+ --> htm dim   : (2018, 4)
+ --> Encoded col [58] with 4 categories ['NiO-c' 'PEDOT:PSS' 'PTAA' 'Spiro-MeOTAD']
+ --> No NA values found in PCE.
+ --> Extracting data for PCE from X dataframe cols [70].
+ --> No preprocessing done for PCE                             from X dataframe cols [70].
+ --> PCE dtype : float32
+ --> PCE dim   : (2018, 1)
+ --> Found .csv file : encoder_output.csv
+ --> Loaded l as a dataframe.
+ --> l Dataframe shape : (2018, 12)
+ --> Dataframe head.
+         0         1         2         3         4   ...        7         8         9         10        11
+0  0.079548  0.140216 -0.022305 -0.208393 -0.100154  ... -0.295522 -0.191096  0.054526 -0.004334  0.262723
+1  0.079548  0.140216 -0.022305 -0.208393 -0.100154  ... -0.295522 -0.191096  0.054526 -0.004334  0.262723
+2  0.080299  0.158210 -0.013408  0.042050 -0.021308  ...  0.179951  0.014216 -0.274330  0.007129 -0.006860
+3  0.079997  0.158583 -0.015896  0.049204 -0.018711  ...  0.205626 -0.042386 -0.186461  0.004946  0.069191
+4  0.079997  0.158583 -0.015896  0.049204 -0.018711  ...  0.205626 -0.042386 -0.186461  0.004946  0.069191
+
+[5 rows x 12 columns]
+ --> No NA values found in latents.
+ --> Extracting data for latents from l dataframe cols [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].
+ --> latents dtype : float32
+ --> latents shape : (2018, 12)
+ --> Found .csv file : bg_pred_output.csv
+ --> Loaded y as a dataframe.
+ --> y Dataframe shape : (2018, 1)
+ --> Dataframe head.
+          0
+0  2.555538
+1  2.512941
+2  3.131805
+3  2.984257
+4  2.936784
+ --> No NA values found in pred_bg.
+ --> Extracting data for pred_bg from y dataframe cols [0].
+ --> pred_bg dtype : float32
+ --> pred_bg shape : (2018, 1)
+kfold
+ --> all_props Fold 0 : train_idx (1614,) test_idx (404,)
+ --> all_props Fold 1 : train_idx (1614,) test_idx (404,)
+ --> all_props Fold 2 : train_idx (1614,) test_idx (404,)
+ --> all_props Fold 3 : train_idx (1615,) test_idx (403,)
+ --> all_props Fold 4 : train_idx (1615,) test_idx (403,)
+ --> etm Fold 0 : train_idx (1614,) test_idx (404,)
+ --> etm Fold 1 : train_idx (1614,) test_idx (404,)
+ --> etm Fold 2 : train_idx (1614,) test_idx (404,)
+ --> etm Fold 3 : train_idx (1615,) test_idx (403,)
+ --> etm Fold 4 : train_idx (1615,) test_idx (403,)
+ --> htm Fold 0 : train_idx (1614,) test_idx (404,)
+ --> htm Fold 1 : train_idx (1614,) test_idx (404,)
+ --> htm Fold 2 : train_idx (1614,) test_idx (404,)
+ --> htm Fold 3 : train_idx (1615,) test_idx (403,)
+ --> htm Fold 4 : train_idx (1615,) test_idx (403,)
+ --> PCE Fold 0 : train_idx (1614,) test_idx (404,)
+ --> PCE Fold 1 : train_idx (1614,) test_idx (404,)
+ --> PCE Fold 2 : train_idx (1614,) test_idx (404,)
+ --> PCE Fold 3 : train_idx (1615,) test_idx (403,)
+ --> PCE Fold 4 : train_idx (1615,) test_idx (403,)
+ --> latents Fold 0 : train_idx (1614,) test_idx (404,)
+ --> latents Fold 1 : train_idx (1614,) test_idx (404,)
+ --> latents Fold 2 : train_idx (1614,) test_idx (404,)
+ --> latents Fold 3 : train_idx (1615,) test_idx (403,)
+ --> latents Fold 4 : train_idx (1615,) test_idx (403,)
+ --> pred_bg Fold 0 : train_idx (1614,) test_idx (404,)
+ --> pred_bg Fold 1 : train_idx (1614,) test_idx (404,)
+ --> pred_bg Fold 2 : train_idx (1614,) test_idx (404,)
+ --> pred_bg Fold 3 : train_idx (1615,) test_idx (403,)
+ --> pred_bg Fold 4 : train_idx (1615,) test_idx (403,)
+ --> Preprocessed dataset.
+ --> PROGRAM EXIT.

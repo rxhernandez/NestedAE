@@ -1,0 +1,53 @@
+ --> User provided command line run_dir argument : ../runs/perovskite_multiscale_dataset_3
+ --> User provided command line ae argument : 1
+ --> User provided command line accelerator argument : cpu
+ --> User provided command line submodule argument : bg_pred
+ --> Set global random seed 0.
+ --> Number of threads : 10
+ --> Number of interop threads : 10
+
+
+ --> Submodule encoder layers :
+ModuleList(
+  (0): Linear(in_features=15, out_features=12, bias=True)
+  (1): Tanh()
+)
+
+
+ --> Submodule bg_pred layers :
+ModuleList(
+  (0): Linear(in_features=12, out_features=100, bias=True)
+  (1): ReLU()
+  (2): Dropout(p=0.1, inplace=False)
+  (3): Linear(in_features=100, out_features=1, bias=True)
+  (4): ReLU()
+)
+
+
+ --> Submodule decoder layers :
+ModuleList(
+  (0): Linear(in_features=12, out_features=15, bias=True)
+)
+
+
+ --> Submodule encoder layers :
+ModuleList(
+  (0): Linear(in_features=15, out_features=12, bias=True)
+  (1): Tanh()
+)
+
+
+ --> Submodule bg_pred layers :
+ModuleList(
+  (0): Linear(in_features=12, out_features=100, bias=True)
+  (1): ReLU()
+  (2): Dropout(p=0.1, inplace=False)
+  (3): Linear(in_features=100, out_features=1, bias=True)
+  (4): ReLU()
+)
+
+
+ --> Submodule decoder layers :
+ModuleList(
+  (0): Linear(in_features=12, out_features=15, bias=True)
+)

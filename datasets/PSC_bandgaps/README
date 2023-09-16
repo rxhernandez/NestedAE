@@ -1,0 +1,9 @@
+PSC_bandgaps_dataset.csv is the file taken from the following repo :
+https://github.com/mannodiarun/perovs_dft_ml/PBE_data.csv
+
+Paper link : 
+Mannodi-Kanakkithodi, A.; Chan, M. K. Y. Data-Driven Design of Novel 
+Halide Perovskite Alloys. Energy Environ. Sci. 2022, 15 (5), 1930–1949.
+https://doi.org/10.1039/D1EE02971A.
+
+

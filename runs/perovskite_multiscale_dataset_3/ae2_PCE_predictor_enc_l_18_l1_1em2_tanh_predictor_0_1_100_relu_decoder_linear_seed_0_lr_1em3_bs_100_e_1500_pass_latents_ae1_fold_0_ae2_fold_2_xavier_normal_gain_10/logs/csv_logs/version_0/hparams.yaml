@@ -1,0 +1,200 @@
+nn_datasets_dict:
+  train:
+    X:
+      header: 0
+      path: ../datasets/PSC_efficiencies/PSC_efficiencies_dataset.csv
+      skiprows: null
+      variables:
+        PCE:
+          cols:
+          - 70
+          preprocess: null
+        all_props:
+          cols:
+          - 20
+          - 21
+          - 22
+          - 23
+          - 24
+          - 31
+          - 32
+          - 33
+          - 34
+          - 35
+          - 43
+          - 44
+          - 45
+          - 46
+          - 47
+          preprocess: std
+        etm:
+          cols:
+          - 57
+          preprocess: ohe
+        htm:
+          cols:
+          - 58
+          preprocess: ohe
+    l:
+      header: null
+      path: ../runs/perovskite_multiscale_dataset_3/ae1_bg_predictor_enc_l_12_l1_1em2_tanh_pred_p_0_1_100_relu_dec_15_linear_seed_0_lr_1em3_bs_10_1500_epochs_mae_mtl_k_fold_0_xavier_normal/submodule_outputs/predict/encoder_output.csv
+      skiprows: null
+      variables:
+        latents:
+          cols:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          preprocess: std
+    y:
+      header: null
+      path: ../runs/perovskite_multiscale_dataset_3/ae1_bg_predictor_enc_l_12_l1_1em2_tanh_pred_p_0_1_100_relu_dec_15_linear_seed_0_lr_1em3_bs_10_1500_epochs_mae_mtl_k_fold_0_xavier_normal/submodule_outputs/predict/bg_pred_output.csv
+      skiprows: null
+      variables:
+        pred_bg:
+          cols:
+          - 0
+          preprocess: std
+nn_params_dict:
+  model_type: ae2_PCE_predictor_enc_l_18_l1_1em2_tanh_predictor_0_1_100_relu_decoder_linear_seed_0_lr_1em3_bs_100_e_1500_pass_latents_ae1_fold_0_ae2_fold_2_xavier_normal_gain_10
+  submodules:
+    PCE_pred:
+      connect_to:
+      - encoder
+      layer_activation:
+      - relu
+      - relu
+      layer_bias_init:
+      - zeros
+      - zeros
+      layer_dropout:
+      - p: 0.1
+        type: Dropout
+      - null
+      layer_kernel_init:
+      - xavier_normal
+      - xavier_normal
+      layer_kernel_init_gain:
+      - 10
+      - 10
+      layer_type:
+      - linear
+      - linear
+      loss:
+        target: PCE
+        type: mae
+        wt: 1
+      num_nodes_per_layer:
+      - 100
+      - 1
+      save_output_on_fit_end: true
+      save_params: true
+    encoder:
+      connect_to:
+      - latents
+      - etm
+      - htm
+      layer_activation:
+      - tanh
+      layer_bias_init:
+      - zeros
+      layer_kernel_init:
+      - xavier_normal
+      layer_kernel_init_gain:
+      - 1
+      layer_type:
+      - linear
+      layer_weight_reg:
+        l1: 0.01
+        l2: 0
+      num_nodes_per_layer:
+      - 18
+      save_output_on_fit_end: true
+      save_params: true
+    etm_pred:
+      connect_to:
+      - encoder
+      layer_activation:
+      - null
+      layer_bias_init:
+      - zeros
+      layer_kernel_init:
+      - xavier_normal
+      layer_kernel_init_gain:
+      - 1
+      layer_type:
+      - linear
+      loss:
+        target: etm
+        type: ce
+        wt: 1
+      num_nodes_per_layer:
+      - 7
+      save_output_on_fit_end: true
+      save_params: true
+    htm_pred:
+      connect_to:
+      - encoder
+      layer_activation:
+      - null
+      layer_bias_init:
+      - zeros
+      layer_kernel_init:
+      - xavier_normal
+      layer_kernel_init_gain:
+      - 1
+      layer_type:
+      - linear
+      loss:
+        target: htm
+        type: ce
+        wt: 1
+      num_nodes_per_layer:
+      - 4
+      save_output_on_fit_end: true
+      save_params: true
+    latents_pred:
+      connect_to:
+      - encoder
+      layer_activation:
+      - null
+      layer_bias_init:
+      - zeros
+      layer_kernel_init:
+      - xavier_normal
+      layer_kernel_init_gain:
+      - 1
+      layer_type:
+      - linear
+      loss:
+        target: latents
+        type: mae
+        wt: 1
+      num_nodes_per_layer:
+      - 12
+      save_output_on_fit_end: true
+      save_params: true
+nn_save_dir: ../runs/perovskite_multiscale_dataset_3/ae2_PCE_predictor_enc_l_18_l1_1em2_tanh_predictor_0_1_100_relu_decoder_linear_seed_0_lr_1em3_bs_100_e_1500_pass_latents_ae1_fold_0_ae2_fold_2_xavier_normal_gain_10
+nn_train_params_dict:
+  batch_size: 100
+  callbacks:
+    model_checkpoint:
+      mode: min
+      monitor: total_val_loss
+      save_top_k: 1
+  epochs: 1500
+  global_seed: 0
+  optimizer:
+    lr: 0.001
+    type: adam
+  shuffle_data_between_epochs: true
+  test_split: 0.1

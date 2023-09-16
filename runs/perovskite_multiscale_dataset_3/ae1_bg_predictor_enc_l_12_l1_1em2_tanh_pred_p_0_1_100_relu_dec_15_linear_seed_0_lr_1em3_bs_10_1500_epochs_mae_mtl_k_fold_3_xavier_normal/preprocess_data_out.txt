@@ -1,0 +1,23 @@
+ --> User provided command line run_dir argument : ../runs/perovskite_multiscale_dataset_3
+ --> User provided command line ae argument : 1
+ --> User provided command line mode argument : predict
+ --> Set global random seed 0.
+ --> Saved user provided dictionaries to pickle.
+ --> Saved user provided dictionaries to run_summary.txt
+ --> Dataset directory already exists. Proceeding to rewrite.
+ --> Found .csv file : val_dataset_preview_fold_3.csv
+ --> Loaded X as a dataframe.
+ --> X Dataframe shape : (99, 19)
+ --> Dataframe head.
+       0      1      2      3      4        5      6      7      8      9     10      11     12     13    14    15    16   17    18
+0  0.761 -0.987 -1.310  1.460  1.300 -1.77000 -0.811  1.070  1.450  0.885 -1.240 -1.3300  1.300  1.310  1.25 -0.39  1.95  1.0  0.15
+1  0.761 -0.987 -1.310  1.460  1.300 -0.00663  0.112  1.080  0.825  0.791 -1.240 -1.3300  1.300  1.310  1.25 -0.25  1.58  1.0  0.17
+2 -0.472  1.870  0.792 -0.969 -0.897 -1.77000 -0.811  1.070  1.450  0.885  1.320  1.2500 -1.280 -1.260 -1.30  0.00  0.64  1.0  0.15
+3 -0.472  1.870  0.792 -0.969 -0.897 -0.00663  0.112  1.080  0.825  0.791 -0.255 -0.0803  0.152  0.129  0.23 -0.27  0.63  1.0  0.12
+4 -0.472  1.870  0.792 -0.969 -0.897  0.24600  1.860  0.982  0.908  1.490 -0.255 -0.0803  0.152  0.129  0.23 -0.17  1.77  1.0  0.15
+ --> No NA values found in all_props.
+ --> Extracting data for all_props from X dataframe cols [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].
+ --> all_props dtype : float32
+ --> all_props shape : (99, 15)
+ --> Preprocessed dataset.
+ --> PROGRAM EXIT.

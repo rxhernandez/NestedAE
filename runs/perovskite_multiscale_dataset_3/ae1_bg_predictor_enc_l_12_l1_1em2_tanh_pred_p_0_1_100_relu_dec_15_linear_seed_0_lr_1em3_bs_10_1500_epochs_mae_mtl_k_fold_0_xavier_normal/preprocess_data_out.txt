@@ -1,0 +1,17 @@
+ --> User provided command line run_dir argument : ../runs/perovskite_multiscale_dataset_3
+ --> User provided command line ae argument : 1
+ --> User provided command line mode argument : predict
+ --> Set global random seed 0.
+ --> Saved user provided dictionaries to pickle.
+ --> Saved user provided dictionaries to run_summary.txt
+ --> Dataset directory already exists. Proceeding to rewrite.
+ --> Found .csv file : val_dataset_preview_fold_1.csv
+ --> Loaded X as a dataframe.
+ --> X Dataframe shape : (99, 5)
+ --> Dataframe head.
+                                                                                                                                     # all_props  decomp    bg  bg_class  SLME
+0.76062 -0.986844 -1.311524 1.456847 1.300558 -0.006630 0.112245 1.077105 0.825494 0.791108 -0.254989 -0.080334  0.152018  0.128726     0.229595   -0.23  1.26       1.0  0.20
+                                                                                             1.315478  1.249745 -1.278395 -1.262986    -1.304487   -0.16  0.88       1.0  0.20
+                                               0.245781 1.862805 0.981507 0.908017 1.485766  1.315478  1.249745 -1.278395 -1.262986    -1.304487    0.03  1.85       1.0  0.22
+                                                                                            -0.254989 -0.080334  0.152018  0.128726     0.229595   -0.15  1.97       1.0  0.12
+                                                                                            -1.236531 -1.334167  1.296348  1.306328     1.252317   -0.17  2.53       1.0  0.06
