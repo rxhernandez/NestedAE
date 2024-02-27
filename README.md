@@ -1,4 +1,4 @@
-NestedAE
+Nested Autotoencoders (NestedAEs)
 ----------------
 
 Multiscale modelling involves inferring physics 
@@ -32,9 +32,9 @@ using JV analysis, respectively.
 Documentation
 ----------------
 
-This repository contains code to inmplement NestedAE. It 
+This repository contains code to implement NestedAE. It 
 was created within the CONDA enviroment, and instructions 
-for installing within it are available in user_md, though 
+for installing within it are available in the [user guide](https://github.com/rxhernandez/NestedAE/blob/main/user_guide.md), though 
 porting to other environnments (as long as the necessary
 libraries are imported) should also be possible whout additional
 code.
@@ -42,12 +42,11 @@ code.
 * For details of the datasets and how we trained NestedAE 
 please refer to the paper, noted in the "Citing" section below.
 
-* For details on how to use NestedAE please read the 
+* For details on how to use NestedAE please refer to the 
 [user_guide.md](https://github.com/rxhernandez/NestedAE/blob/main/user_guide.md) in the docs folder.
 
 * Any questions or comments please reach out via email
 to the authors of the paper.
-
 
 
 <hr>
