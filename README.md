@@ -121,13 +121,6 @@ pytest
 Documentation
 ----------------
 
-This repository contains code to implement NestedAE. It 
-was created within the CONDA enviroment, and instructions 
-for installing within it are available in the [user guide](https://github.com/rxhernandez/NestedAE/blob/main/user_guide.md), though 
-porting to other environnments (as long as the necessary
-libraries are imported) should also be possible whout additional
-code.
-
 * For details of the datasets and how we trained NestedAE 
 please refer to the paper, noted in the "Citing" section below.
 
