@@ -48,7 +48,9 @@ The main directories in NestedAE are code and datasets.<br>
 </pre>
 ### How to use NestedAE
 
-* Create a new conda environment for NestedAE by typing the following command in the terminal at the root directory of NestedAE:conda env create -n name_of_env_goes_here --file nestedae.yml
+* Create a new conda environment for NestedAE by following the below commands
+    - Create a conda environment with python=3.9.18 : conda create -n your_env_name python=3.9.18
+    - Update your_env_name with pip packages specified in nestedae.yml : conda env update --file nestedae.yml
 * Inside the 'code' directory, create a new inputs directory and populate with the required input files. A template of the input files is provided in "inputs_example". <span style="color: red">**Copy and paste the files into your input dir. but do not change the input file names**</span>
 * Edit the user section in go.sh script. 
 * Run the go.sh scrip (./go.sh) from the code directory. This will create the run directory (if not present) and populate it with model directory.

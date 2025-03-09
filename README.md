@@ -29,6 +29,95 @@ using JV analysis, respectively.
 
 <hr>
 
+Installation
+----------------
+
+Clone the repository to the directory of your choice on your local machine.
+
+```bash
+git clone git@github.com:T-NIKHIL/NestedAE.git
+```
+
+One-step installation :
+
+** FYI ** : The script is designed to be run on MacOS systems. For other
+operating systems please refer to the manual installation section below 
+and find the appropriate terminal commands for your OS to execute each step.
+
+```bash
+./install.sh
+```
+
+To manually install, please follow the step-by-step instructions below :
+
+Manual installation
+
+* Create a new virtual environment to install the NestedAE library using
+either Conda or python venv.
+
+* Using Conda :
+
+    * This method requires you to have already installed conda on your local machine.
+    For more details please visit the [Conda website](https://docs.anaconda.com/miniconda/install/).
+
+    * Create a new conda environment with python=3.9 
+
+    ```bash 
+    conda create -n NestedAE python=3.9
+    ```
+
+* Using python venv :
+
+    * This is a barebones method of creating a python virtual environment and
+    is what is followed in install.sh script.  
+
+    ```bash
+    python3.9 -m venv python_venvs/NestedAE
+    ```
+
+* After running the above command, you will see the NestedAE directory
+contains a new directory called "python_venvs" and inside it is the
+"NestedAE" virtual environment directory. To activate this virtual 
+environment go back to the project root directory and type the following
+command. To deactivate the virtual environment, type `deactivate`.
+
+```bash
+source python_venvs/NestedAE/bin/activate
+```
+
+* The name of the virtual environment will be displayed in the terminal
+and typing `pip list` will show that *pip* and *setuptools* python libraries
+are installed by default. 
+
+* We will need a *build frontend* tool to install
+the NestedAE python package in the NestedAE virtual environment. 
+For this we will download the *build* python package.
+
+```bash
+pip install -U build
+```
+
+* Create the NestedAE *wheel* file.
+
+```bash
+python -m build --wheel
+```
+
+**Optional** : You can also create a source distribution (which is essentially a zipped file containing the source code) by typing : `python -m build --sdist`. 
+
+* Now we can finally install the NestedAE python package. 
+
+```bash
+pip install .
+```
+
+* Voilá ! You have now successfully installed the NestedAE python package. You can
+now run pytest to check for successful installation.
+
+```bash
+pytest
+```
+
 Documentation
 ----------------
 
