@@ -1,8 +1,8 @@
 .DS_Store
 jupyter_notebooks
 runs
-datasets/PSC_efficiencies/jacobssen2021dataset.csv
-datasets/PSC_efficiencies/jacobssen2021dataset.xlsx
+datasets/PSC_efficiencies/jacobsson2021dataset.csv
+datasets/PSC_efficiencies/jacobsson2021dataset.xlsx
 inputs_old
 wandb_api_key.py
 python_venvs
