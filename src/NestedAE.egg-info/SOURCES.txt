@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/NestedAE/__init__.py
+src/NestedAE/ae.py
+src/NestedAE/dataset_utils.py
+src/NestedAE/nn_utils.py
+src/NestedAE.egg-info/PKG-INFO
+src/NestedAE.egg-info/SOURCES.txt
+src/NestedAE.egg-info/dependency_links.txt
+src/NestedAE.egg-info/requires.txt
+src/NestedAE.egg-info/top_level.txt
+tests/test_ae.py
+tests/test_dataset_utils.py
+tests/test_nn_utils.py

@@ -1,0 +1,7 @@
+numpy<2,>=1.25.2
+torch<3,>=2.0.1
+torchmetrics<2,>=1.1.1
+lightning<3,>=2.0.8
+pandas<3,>=2.1.0
+scikit-learn<2,>=1.2.1
+pytest<9,>=8.0

@@ -1,3 +1,29 @@
+Metadata-Version: 2.2
+Name: NestedAE
+Version: 0.0.1
+Summary: NestedAE is a neural network model based on supervised autoencoders for multi-scale modelling. Each supervised autoencoder learns to find the relationship between descriptors and properties at a required length scale while building an invaraiant latent structure. These learned latent variables are passed as features along with decriptors at a larger length scale to find their relationship with the property at a larger length scale.
+Author-email: Nikhil Kumar Thota <nikthota7@gmail.com>
+Maintainer-email: Nikhil Kumar Thota <nikthota7@gmail.com>
+Project-URL: Repository, https://github.com/T-NIKHIL/NestedAE
+Project-URL: Homepage, https://t-nikhil.github.io/NestedAE/
+Project-URL: Documentation, https://readthedocs.org
+Keywords: deep learning,autoencoders,multi-scale
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy<2,>=1.25.2
+Requires-Dist: torch<3,>=2.0.1
+Requires-Dist: torchmetrics<2,>=1.1.1
+Requires-Dist: lightning<3,>=2.0.8
+Requires-Dist: pandas<3,>=2.1.0
+Requires-Dist: scikit-learn<2,>=1.2.1
+Requires-Dist: pytest<9,>=8.0
+
 Nested Autotoencoders (NestedAEs)
 ----------------
 
@@ -120,6 +146,13 @@ pytest
 
 Documentation
 ----------------
+
+This repository contains code to implement NestedAE. It 
+was created within the CONDA enviroment, and instructions 
+for installing within it are available in the [user guide](https://github.com/rxhernandez/NestedAE/blob/main/user_guide.md), though 
+porting to other environnments (as long as the necessary
+libraries are imported) should also be possible whout additional
+code.
 
 * For details of the datasets and how we trained NestedAE 
 please refer to the paper, noted in the "Citing" section below.

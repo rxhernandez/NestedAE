@@ -1,3 +1,8 @@
 .DS_Store
-*/.DS_Store
-*/*/.DS_Store
+jupyter_notebooks
+runs
+datasets/PSC_efficiencies/jacobsson2021dataset.csv
+datasets/PSC_efficiencies/jacobsson2021dataset.xlsx
+inputs_old
+wandb_api_key.py
+python_venvs

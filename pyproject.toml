@@ -1,0 +1,54 @@
+[build-system]
+requires=["setuptools"]
+build-backend="setuptools.build_meta"
+
+[project]
+name="NestedAE"
+requires-python=">=3.9"
+dependencies=[
+	"numpy >= 1.25.2, <2",
+	"torch >= 2.0.1, <3",
+	"torchmetrics >= 1.1.1, <2",
+	"lightning >= 2.0.8, <3",
+	"pandas >= 2.1.0, <3",
+	"scikit-learn >= 1.2.1 , <2",
+	"pytest >= 8.0, <9"
+]
+authors=[
+	{name="Nikhil Kumar Thota", email="nikthota7@gmail.com"}
+]
+maintainers=[
+	{name="Nikhil Kumar Thota", email="nikthota7@gmail.com"}
+]
+description="NestedAE is a neural network model based on supervised autoencoders for multi-scale modelling. Each supervised autoencoder learns to find the relationship between descriptors and properties at a required length scale while building an invaraiant latent structure. These learned latent variables are passed as features along with decriptors at a larger length scale to find their relationship with the property at a larger length scale."
+readme="README.md"
+keywords=["deep learning", "autoencoders", "multi-scale"]
+classifiers=[
+	"Development Status :: 5 - Production/Stable",
+	"Intended Audience :: Developers",
+	"Topic :: Scientific/Engineering :: Artificial Intelligence",
+	"License :: OSI Approved :: MIT License",
+	"Programming Language :: Python :: 3.9"
+]
+dynamic=["version"]
+
+[project.urls]
+Repository="https://github.com/T-NIKHIL/NestedAE"
+Homepage="https://t-nikhil.github.io/NestedAE/"
+Documentation="https://readthedocs.org"
+
+[tool.setuptools.dynamic]
+version={attr="NestedAE.__version__"}
+
+[tool.pytest.ini_options]
+minversion = "6.0" 
+addopts = ["-rA",
+	   "--tb=long",
+	   "--maxfail=2"]
+console_output_style = "classic"
+testpaths = ["tests",
+			 "integration"]
+
+
+
+
